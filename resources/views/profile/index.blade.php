@@ -8,7 +8,7 @@
                 <div class="alert alert-success" role="alert">{{ session('success') }}</div>
             @endif
             @if (session('danger'))
-                <div class="alert alert-danger" role="alert">{{ session('danger') }}</div>
+                <div class="alert alert-danger" role="alert" style="color: red;">{{ session('danger') }}</div>
             @endif
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                 <a href="{{ route('students.create') }}" class="btn btn-primary mt-2"> <i class="fa-solid fa-plus"></i> Add Student </a>

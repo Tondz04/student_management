@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="card mt-5" style="background-color: rgba(255, 255, 255, 0.32); backdrop-filter: blur(8px);">
-        <h2 class="card-header text-white">Edit Profile</h2>
+        <h2 class="card-header ">Edit Profile</h2>
         <div class="card-body">
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                 <a href="{{ route('students.index') }}" class="btn btn-primary mt-2">Back</a>

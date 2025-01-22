@@ -59,20 +59,19 @@
         </div>
     </div>
 
-    <!-- Custom Styles for Input Fields and Placeholder -->
+    
     <style>
-        /* Change the background color of the input fields to gray */
+        
         .form-control {
-            background-color: #f0f0f0; /* Light gray background */
-            color: #333; /* Dark text color for better contrast */
+            background-color: #f0f0f0; 
+            color: #333; 
         }
 
-        /* Change the background color of the placeholder text */
+        
         .form-control::placeholder {
-            background-color: rgba(0, 0, 0, 0.1); /* Slightly darker placeholder background */
-            color: #555; /* Darker placeholder text */
+            background-color: rgba(0, 0, 0, 0.1); 
+            color: #555; 
         }
 
-        /* You can apply more styles if needed */
     </style>
 @endsection

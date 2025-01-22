@@ -109,6 +109,6 @@ class StudentController extends Controller
     {
         $student->delete();
         return redirect()->route('students.index')
-            ->with('success', 'Student deleted successfully');
+            ->with('danger', 'Student deleted successfully');
     }
 }
