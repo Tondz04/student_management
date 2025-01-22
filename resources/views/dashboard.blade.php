@@ -12,6 +12,11 @@
                     {{ __("You're logged in!") }}
                 </div>
             </div>
+            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg mt-4">
+                <div class="p-6 text-gray-900 dark:text-gray-100">
+                    <a href="{{ route('students.index') }}" class="btn btn-primary">Go to Students Page</a>
+                </div>
+            </div>
         </div>
     </div>
 </x-app-layout>

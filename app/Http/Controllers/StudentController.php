@@ -27,7 +27,7 @@ class StudentController extends Controller
      */
     public function create()
     {
-        //
+        return view('profile.create');
     }
 
     /**
@@ -35,15 +35,35 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request -> validate([
+            'name' => 'required',
+            'age' => 'required',
+            'grade' => 'required',
+            'contact' => 'required',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+   
+    ]);
+    $input = $request->all();
+
+
+        if($image = $request->file('image')){
+            $destinationPath = 'image/';
+            $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
+            $image->move($destinationPath, $profileImage);
+            $input['image'] = "$profileImage";
+        }
+        Student::create($input);
+        return redirect()->route('students.index')
+            ->with('success', 'Student created successfully.');
     }
+       
 
     /**
      * Display the specified resource.
      */
     public function show(Student $student)
     {
-        //
+        return view('profile.show', compact('student'));
     }
 
     /**
@@ -51,7 +71,8 @@ class StudentController extends Controller
      */
     public function edit(Student $student)
     {
-        //
+        
+        return view('profile.editstud', compact('student'));
     }
 
     /**
@@ -59,7 +80,26 @@ class StudentController extends Controller
      */
     public function update(Request $request, Student $student)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'age' => 'required',
+            'grade' => 'required',
+            'contact' => 'required',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+        ]);
+        $input = $request->all();
+
+        if($image = $request->file('image')){
+            $destinationPath = 'image/';
+            $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
+            $image->move($destinationPath, $profileImage);
+            $input['image'] = "$profileImage";
+        }else{
+            unset($input['image']);
+        }
+        $student->update($input);
+        return redirect()->route('students.index')
+            ->with('success', 'Student updated successfully');
     }
 
     /**
@@ -67,6 +107,8 @@ class StudentController extends Controller
      */
     public function destroy(Student $student)
     {
-        //
+        $student->delete();
+        return redirect()->route('students.index')
+            ->with('success', 'Student deleted successfully');
     }
 }
