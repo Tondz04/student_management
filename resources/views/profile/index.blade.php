@@ -10,6 +10,9 @@
             @if (session('danger'))
                 <div class="alert alert-danger" role="alert">{{ session('danger') }}</div>
             @endif
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <a href="{{ route('students.create') }}" class="btn btn-primary mt-2"> <i class="fa-solid fa-plus"></i> Add Student </a>
+            </div>
 
             
             <table class="table table-striped mt-4 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100">
@@ -53,9 +56,7 @@
                     @endforelse
                 </tbody>
             </table>
-            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                <a href="{{ route('students.create') }}" class="btn btn-primary mt-2">Add Student</a>
-            </div>
+            
         </div>
     </div>
 @endsection
