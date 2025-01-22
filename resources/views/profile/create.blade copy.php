@@ -1,15 +1,14 @@
 @extends('profile.layout')
 
 @section('content')
-    <div class="card mt-5" style="background-color: rgba(255, 255, 255, 0.32);">
-        <h2 class="card-header text-white">Create Profile</h2>
+    <div class="card mt-5">
+        <h2 class="card-header">Create Profile</h2>
         <div class="card-body">
-            <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                 <a href="{{ route('students.index') }}" class="btn btn-primary mt-2">Back</a>
             </div>
             <form action="{{ route('students.store') }}" method="post" enctype="multipart/form-data">
                 @csrf
-                <div class="bg-white fw-bold p-4 mt-3" style="border-radius: 10px;">
                 <div class="form-group mt-4">
                     <label for="name">Name</label>
                     <input type="text" class="form-control @error('name') is-invalid @enderror"
@@ -50,26 +49,8 @@
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
                 </div>
-                </div>
-                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                        <button type="submit" class="btn btn-success mt-4">Submit</button>
-                    </div>
+                <button type="submit" class="btn btn-success mt-4">Submit</button>
             </form>
         </div>
     </div>
-
-    <style>
-        .form-control {
-            background-color: #f0f0f0; 
-            color: #333; 
-        }
-
-        
-        .form-control::placeholder {
-            background-color: #f0f0f0; 
-            color: #555; 
-        }
-
-        
-    </style>
 @endsection

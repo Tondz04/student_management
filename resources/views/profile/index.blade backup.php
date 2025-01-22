@@ -1,9 +1,9 @@
 @extends('profile.layout')
 
 @section('content')
-    <div class="card mt-5" style="background-color: rgba(255, 255, 255, 0.32); backdrop-filter: blur(8px);">
-    <h2 class="card-header text-white">List of Students</h2>
-        <div class="card-body text-gray-900 dark:text-gray-100">
+    <div class="card mt-5 bg-white dark:bg-gray-800">
+        <h2 class="card-header bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100">List of Students</h2>
+        <div class="card-body bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100">
             @if (session('success'))
                 <div class="alert alert-success" role="alert">{{ session('success') }}</div>
             @endif
@@ -14,7 +14,8 @@
                 <a href="{{ route('students.create') }}" class="btn btn-primary mt-2"> <i class="fa-solid fa-plus"></i> Add Student </a>
             </div>
 
-            <table class="table table-striped mt-4" style="border-radius: 10px;  overflow: hidden;">
+            
+            <table class="table table-striped mt-4 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100">
                 <thead>
                     <tr>
                         <th>No.</th>
@@ -23,9 +24,9 @@
                         <th>Grade</th>
                         <th>Contact</th>
                         <th>Image</th>
-                        <th class="text-center">Action</th>
+                        <th class="text-center">Action</th> <!-- Center the Action header -->
                     </tr>
-                </thead>
+                </thead>    
                 <tbody>
                     @forelse ($students as $student)
                         <tr>
@@ -34,8 +35,8 @@
                             <td>{{ $student->age }}</td>
                             <td>{{ $student->grade }}</td>
                             <td>{{ $student->contact }}</td>
-                            <td><img src="{{ asset('image/'.$student->image) }}" alt="image" width="100" style="border-radius: 8px;"></td>
-                            <td class="text-center">
+                            <td><img src="{{ asset('image/'.$student->image) }}" alt="image" width="100"></td>
+                            <td class="text-center"> <!-- Center the Action buttons -->
                                 <div class="d-flex justify-content-center">
                                     <a href="{{ route('students.show', $student->id) }}" class="btn btn-success btn-sm me-1"><i class="fa-regular fa-user"></i> Show</a>
                                     <a href="{{ route('students.edit', $student->id) }}" class="btn btn-primary btn-sm me-1">
@@ -55,6 +56,7 @@
                     @endforelse
                 </tbody>
             </table>
+            
         </div>
     </div>
 @endsection
